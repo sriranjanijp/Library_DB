@@ -45,7 +45,63 @@ This project was done with the help of chatGPT because I have no prior knowledge
    git clone https://github.com/sriranjanijp/Library_DB
    cd Library_DB
 
-1. **Install dependencies**:
+2. **Install dependencies**:
    ```bash
    pip install -r requirements.txt
+
+3. **Run migrations**:
+   ```bash
+   python manage.py migrate
+
+4. **Existing User & Token**:
+    You can use the following credentials:
+    - Username: `testuser`
+    - Password: `password123`
+    - Token: `46b19f50214164dbe949e5575551c50b1b4a68e9`
+
+5. **Use the token for API requests**:
+    Copy the token and use it in your PowerShell API requests like this:
+   ```powershell
+   (curl -Method Get -Uri "http://127.0.0.1:8000/api/books/" -Headers @{
+    "Authorization" = "Token bf336eb6cb8fd567628542299593ff4d5fabc588"
+    }).Content | ConvertFrom-Json
+
+## Run the Server
+
+1. **Start the server**:
+   ```bash
+   python manage.py runserver
+
+2. **Access the API**: 
+    `http://127.0.0.1:8000/`
+
+## Some commands
+
+1. **Show all books**
+```powershell
+   (curl -Method Get -Uri "http://127.0.0.1:8000/api/books/" -Headers @{
+    "Authorization" = "Token bf336eb6cb8fd567628542299593ff4d5fabc588"
+    }).Content | ConvertFrom-Json
+```
+2. **To add a book**
+```powershell
+   $body = @{
+    "isbn" = "0-375-70402-7"
+    "title" = "Norwegian Wood"
+    "author" = "Haruki Murakami"
+    "genre" = @("Fiction", "Romance")
+    "copies" = 4
+    "available_copies" = 4
+    "location" = "Section B-14"
+    "rating" = 4.2
+    "borrowed_count" = 0
+} | ConvertTo-Json -Depth 2
+
+curl -Method Post -Uri "http://127.0.0.1:8000/api/books/" -Headers @{
+    "Authorization" = "Token bf336eb6cb8fd567628542299593ff4d5fabc588"
+    "Content-Type"  = "application/json"
+} -Body $body
+```
+
+
 _Last updated: March 5, 2025 [9:00pm]_
