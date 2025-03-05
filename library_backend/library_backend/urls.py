@@ -15,8 +15,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path, include
+from library.views import borrow_book
+
 
 urlpatterns = [
     path('api/', include('library.urls')),
+    path('api/borrow/', borrow_book, name='borrow-book'),
 ]
 
