@@ -35,7 +35,6 @@ This project was done with the help of chatGPT because I have no prior knowledge
 
 ## Next Steps
 - Implement user authentication and registration.
-- Add return book functionality.
 - Improve error handling and API responses.
 
 ---
