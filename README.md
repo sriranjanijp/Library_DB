@@ -63,7 +63,7 @@ This project was done with the help of chatGPT because I have no prior knowledge
     Copy the token and use it in your PowerShell API requests like this:
    ```powershell
    (curl -Method Get -Uri "http://127.0.0.1:8000/api/books/" -Headers @{
-    "Authorization" = "Token bf336eb6cb8fd567628542299593ff4d5fabc588"
+    "Authorization" = "Token 46b19f50214164dbe949e5575551c50b1b4a68e9"
     }).Content | ConvertFrom-Json
 
 ## Run the Server
@@ -80,7 +80,7 @@ This project was done with the help of chatGPT because I have no prior knowledge
 1. **Show all books**
 ```powershell
    (curl -Method Get -Uri "http://127.0.0.1:8000/api/books/" -Headers @{
-    "Authorization" = "Token bf336eb6cb8fd567628542299593ff4d5fabc588"
+    "Authorization" = "Token 46b19f50214164dbe949e5575551c50b1b4a68e9"
     }).Content | ConvertFrom-Json
 ```
 2. **To add a book**
@@ -98,10 +98,10 @@ This project was done with the help of chatGPT because I have no prior knowledge
 } | ConvertTo-Json -Depth 2
 
 curl -Method Post -Uri "http://127.0.0.1:8000/api/books/" -Headers @{
-    "Authorization" = "Token bf336eb6cb8fd567628542299593ff4d5fabc588"
+    "Authorization" = "Token 46b19f50214164dbe949e5575551c50b1b4a68e9"
     "Content-Type"  = "application/json"
 } -Body $body
 ```
 
 
-_Last updated: March 5, 2025 [9:00pm]_
+_Last updated: March 5, 2025 [10:30pm]_
