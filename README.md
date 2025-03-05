@@ -38,4 +38,14 @@ This project was done with the help of chatGPT because I have no prior knowledge
 - Improve error handling and API responses.
 
 ---
+## Setup
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/sriranjanijp/Library_DB
+   cd Library_DB
+
+1. **Install dependencies**:
+   ```bash
+   pip install -r requirements.txt
 _Last updated: March 5, 2025 [9:00pm]_
