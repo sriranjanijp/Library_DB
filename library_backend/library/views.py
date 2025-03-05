@@ -39,3 +39,23 @@ def borrow_book(request):
             return JsonResponse({"error": "Book not found"}, status=404)
 
     return JsonResponse({"error": "Invalid request"}, status=400)
+
+@csrf_exempt
+def return_book(request):
+    if request.method == "POST":
+        data = json.loads(request.body)
+        book_id = data.get("book_id")
+
+        try:
+            book = Book.objects.get(id=book_id)
+            if book.borrowed_count > 0:
+                book.available_copies += 1
+                book.borrowed_count -= 1
+                book.save()
+                return JsonResponse({"message": f"You returned '{book.title}'. Copies available: {book.available_copies}"})
+            else:
+                return JsonResponse({"error": "No borrowed copies to return"}, status=400)
+        except Book.DoesNotExist:
+            return JsonResponse({"error": "Book not found"}, status=404)
+
+    return JsonResponse({"error": "Invalid request"}, status=400)

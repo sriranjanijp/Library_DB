@@ -16,10 +16,11 @@ Including another URLconf
 """
 from django.urls import path, include
 from library.views import borrow_book
-
+from django.contrib import admin
+from django.urls import path, include
 
 urlpatterns = [
     path('api/', include('library.urls')),
-    path('api/borrow/', borrow_book, name='borrow-book'),
+    path("admin/", admin.site.urls), 
 ]
 
